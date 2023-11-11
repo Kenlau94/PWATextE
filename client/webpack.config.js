@@ -30,10 +30,27 @@ module.exports = () => {
         template: "./index.html",
       }),
       new InjectManifest({
-        title: "J.A.T.E.",
-        template: "./index.html",
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js",
       }),
-      new WebpackPwaManifest({}),
+      new WebpackPwaManifest({
+        filename: "manifest.json",
+        publicPath: "/",
+        name: "Just Another Text Editor",
+        short_name: "J.A.T.E.",
+        description: "Takes notes with JavaScript syntax highlighting!",
+        start_url: "/",
+        display: "standalone",
+        inject: true,
+        fingerprints: false,
+        orientation: "portrait",
+        background_color: "#225ca3",
+        theme_color: "#225ca3",
+        crossorigin: "use-credentials",
+        icons: [
+          //routes to icon i think
+        ],
+      }),
     ],
 
     module: {
