@@ -48,13 +48,40 @@ module.exports = () => {
         theme_color: "#225ca3",
         crossorigin: "use-credentials",
         icons: [
-          //routes to icon i think
+          {
+            src: "./src/images/logo.png",
+            sizes: [96, 128, 144, 152, 192, 256, 384, 512],
+            destination: "./assets/icons",
+          },
         ],
       }),
     ],
 
     module: {
-      rules: [],
+      rules: [
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: "asset/resource",
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"],
+              plugins: [
+                "@babel/plugin-proposal-object-rest-spread",
+                "@babel/transform-runtime",
+              ],
+            },
+          },
+        },
+      ],
     },
   };
 };
