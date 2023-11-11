@@ -24,7 +24,17 @@ module.exports = () => {
     },
 
     //todo start here, plugins and modules
-    plugins: [],
+    plugins: [
+      new HtmlWebpackPlugin({
+        title: "J.A.T.E.",
+        template: "./index.html",
+      }),
+      new InjectManifest({
+        title: "J.A.T.E.",
+        template: "./index.html",
+      }),
+      new WebpackPwaManifest({}),
+    ],
 
     module: {
       rules: [],
