@@ -1,3 +1,4 @@
+//imports open, calls function, opens db 1 in jate, upgrades db, if already exists logs aleady exists ect
 import { openDB } from "idb";
 
 const initdb = async () =>
@@ -23,7 +24,7 @@ export const putDb = async (content) => {
   if (result) {
     console.log("Data saved to IndexedDB", result);
   } else {
-    console.error("putDb not implemented");
+    console.error("putDb no go");
   }
 };
 // TODO: Add logic for a method that gets all the content from the database
@@ -37,7 +38,7 @@ export const getDb = async () => {
   if (result) {
     console.log("fetching results from IndexedDB", result);
   } else {
-    console.error("getDb not implemented");
+    console.error("getDb no go");
   }
 };
 
