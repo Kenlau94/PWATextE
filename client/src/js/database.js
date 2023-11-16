@@ -1,7 +1,10 @@
 //imports open, calls function, opens db 1 in jate, upgrades db, if already exists logs aleady exists ect
 import { openDB } from "idb";
 
-const initdb = async () =>
+// const initdb = async () =>
+//
+
+const initdb = async () => {
   openDB("jate", 1, {
     upgrade(db) {
       if (db.objectStoreNames.contains("jate")) {
@@ -12,6 +15,7 @@ const initdb = async () =>
       console.log("jate database created");
     },
   });
+};
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
@@ -38,7 +42,7 @@ export const getDb = async () => {
   if (result) {
     console.log("fetching results from IndexedDB", result);
   } else {
-    console.error("getDb no go");
+    console.error("getDb no go ");
   }
 };
 
